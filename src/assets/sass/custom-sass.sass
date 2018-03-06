@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+@import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css');
+
+
+body
+	display: flex
+	justify-content: center
+	margin: 0
+	flex-direction: column
+	overflow-x: hidden
+
+
+html 
+	font-size: 10px
+
+	+max(1441px) 
+		font-size: 9.5px
+
+	+max(1281px) 
+		font-size: 9px
+
+	+max(991px) 
+		font-size: 8.5px
+
+	+max(767px) 
+		font-size: 8px
+
+
+body 
+	font-size: 1.6rem
+	font-family: 'Roboto', sans-serif
+
+button
+	cursor: pointer
+	outline: none
+
+input
+	padding: 0
+.kat-container 
+	width: 1170px
+	position: relative
+	margin: 0 auto
+	padding: 0 30px
+	+max(1441px) 
+		width: 1070px
+	
+	+max(1281px) 
+		width: 970px
+	
+	+max(991px) 
+		width: 100%
+		padding: 0 10px
+     
+#main_content 
+	width: 100%
+	position: relative
+	transition: .2s linear
+ 
+*,
+*:after,
+*:before 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+p 
+	font-size: inherit
+	margin: 0

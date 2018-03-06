@@ -1,0 +1,15 @@
+=max($media)
+	@media only screen and (max-width: $media)
+		@content
+=maxh($media)
+	@media only screen and (max-height: $media)
+		@content
+=min($media)
+	@media only screen and (min-width: $media)
+		@content
+=minh($media)
+	@media only screen and (min-height: $media)
+		@content
+=minmax($min, $max)
+	@media only screen and (min-width: $min) and (max-width: $max)
+		@content

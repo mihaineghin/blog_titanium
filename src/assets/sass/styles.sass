@@ -1,0 +1,84 @@
+@import './media'
+@import './custom-sass'
+
+//Components style
+.App
+    height: 100vh
+    background-size: cover
+    padding-top: 230px
+    overflow: hidden
+    overflow-y: scroll
+.main-container
+    
+    .carts-container
+        max-width: 900px
+        margin: 0 auto
+        .cart-item
+            width: 100%
+            display: flex
+            flex-direction: column
+            align-items: stretch
+            min-height: 360px
+            text-decoration: none
+            transition: 250ms
+            margin-bottom: 30px
+            &:hover
+                transform: translateY(-10px)
+            .cart-title
+                padding: 24px;
+                display: flex;
+                flex-grow: 1;
+                flex-direction: row;
+                align-items: flex-end;
+                background-repeat: no-repeat
+                background-size: cover
+                p 
+                    font-weight: 500;
+                    font-size: 34px;
+                    line-height: 40px;
+                    color: #fff
+            .description
+                min-height: 76px
+                padding: 16px
+                min-height: 64px
+                display: flex
+                align-items: center
+                background-color: #fff
+                p
+                    line-height: 18px
+                    color: #757575
+                    font-size: 1.4rem
+            .cart-footer
+                min-height: 64px
+                background-color: #fff
+                padding: 16px
+                display: flex
+                align-items: center
+                justify-content: flex-start
+                border-top: 1px solid rgba(0,0,0,0.1)
+                .avatar
+                    width: 44px;
+                    height: 44px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 50%;
+                    border-radius: 22px;
+                    background-color: #F5F5F5;
+                    margin-right: 20px
+                .post-info
+                    p
+                        font-weight: 400
+                        color: #757575
+                        font-size: 1.4rem
+
+.footer-container
+    background-color: #fff
+    min-height: 80px
+    display: flex
+    align-items: center
+    margin-top: 100px
+    a 
+        margin-left: 30px
+        i 
+            font-size: 2rem
+            color: #898989
