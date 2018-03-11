@@ -9,6 +9,6 @@ export default class Body extends Component {
                     {[carts]}
                 </div>
             </div>
-        )
+        ) 
     }
 }

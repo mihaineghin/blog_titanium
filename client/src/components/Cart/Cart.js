@@ -12,8 +12,9 @@ export default class Cart extends Component {
         // }
         
         // console.log(cartInfo.description)
+        
         return(
-            <Link to="/posts/:id">
+            <Link className="cart-style" to={'/posts/' + this.props.urlKey}>
                 <div className="cart-item">
                     <div className="cart-title" style={{backgroundImage: `url(${this.props.cartImage})` }}>
                         <p>{this.props.title}</p>

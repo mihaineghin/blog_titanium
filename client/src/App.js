@@ -13,11 +13,11 @@ import Carts from './components/Cart/CartCollection'
 import './assets/css/styles.min.css';
 
 
-
+ 
 class App extends Component {
   render() {
     const imageUrl = require(`./assets/images/${this.props.imageName}.jpg`)
-    return (
+    return ( 
       <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
         <Body>
           <Router> 
@@ -26,11 +26,12 @@ class App extends Component {
               <Route path='/posts' component={Carts} />
             </Switch>
           </Router>
-        </Body>
+        </Body>  
         <Footer socials={['twitter', 'facebook', 'google']} />
-      </div>
+      </div> 
     );
-  }
-}
-
-export default App;
+  } 
+} 
+ 
+export default App;  
+  
