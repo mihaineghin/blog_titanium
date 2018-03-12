@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 let postSchema = new Schema({
     title: String,
+    moto: String,
     description: String,
-    cartImg: {data: Buffer, contentType: String}
+    cartImage: String
 })
 
-let Post = mongoose.model('Post', postSchema);
+let Post = mongoose.model('Posts', postSchema);
 
 module.exports = Post;

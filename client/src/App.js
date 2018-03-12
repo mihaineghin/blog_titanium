@@ -4,14 +4,13 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 //Components
 import Body from './components/Body/Body'
-import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import AddPost from './components/AddPost/AddPost'
 import Carts from './components/Cart/CartCollection'
+import PostPage from './components/PostPage/PostPage'
 
 //styles
 import './assets/css/styles.min.css';
-
 
  
 class App extends Component {
@@ -21,16 +20,17 @@ class App extends Component {
       <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
         <Body>
           <Router> 
-            <Switch>
+            <Switch> 
               <Route path='/' exact component={AddPost} />
-              <Route path='/posts' component={Carts} />
-            </Switch>
-          </Router>
+              <Route path='/posts' exact component={Carts} />
+              <Route path='/posts/:id' exact component={PostPage} />
+            </Switch> 
+          </Router> 
         </Body>  
         <Footer socials={['twitter', 'facebook', 'google']} />
       </div> 
     );
-  } 
+  }  
 } 
  
 export default App;  

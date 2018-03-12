@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import axios from 'axios';
 
 import Cart from './Cart'
 // import data from '../../data/data'
@@ -8,24 +9,22 @@ export default class Carts extends Component{
         
     };
 
-    componentDidMount() {
-        fetch("/api/posts")
-        .then(res => res.json())
-        .then(postsCollection => {
-            let data = postsCollection.map((el, index) => {
-                return <Cart {...el} key={index} urlKey={index}/>
-            })
+    componentWillMount() {
+        axios("/api/posts")
+        .then(res => {
+            let data = res.data
             this.setState({data});
-            console.log(postsCollection)
-        });
+        })
+        
     }
  
     render() {
         let posts = this.state.data;
-        
         return(
             <div>
-                {posts}
+                {posts && 
+                    posts.map((el, index) => <Cart {...el} key={index} urlKey={el._id}/>)
+                }
             </div>
         )
     }
