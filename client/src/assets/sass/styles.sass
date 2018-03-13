@@ -25,6 +25,7 @@
             text-decoration: none
             transition: 250ms
             margin-bottom: 30px
+            position: relative
             &:hover
                 transform: translateY(-10px)
             .cart-title
@@ -97,6 +98,7 @@
             outline: none
             transition: 400ms
             font-size: 1.7rem
+            margin-top: 20px
             &:focus
                 transform: scale(1.05)
             &::placeholder
@@ -119,3 +121,28 @@
             &::placeholder
                 font-size: 1.7rem
                 opacity: 0.8
+
+.detail-post
+  .description 
+    padding: 0 100px!important
+
+.edit_button
+  position: absolute;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background-color: #d23f31
+  top: 0
+  right: 0
+  transform: translate(50%, -50%)
+  display: flex;
+  align-items: center
+  justify-content: center
+  i 
+    font-size: 18px
