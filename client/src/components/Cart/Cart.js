@@ -6,10 +6,12 @@ import PostCart from '../PostPage/PostCart';
 import CartFooter from './CartFooter';
 
 export default class Cart extends Component {
-
-  state = {
-    postData: '',
-    multiplePosts: true
+  constructor() {
+    super();
+    this.state = {
+      postData: '',
+      multiplePosts: true
+    }
   }
 
   handlePostId = () => {
@@ -30,7 +32,6 @@ export default class Cart extends Component {
             <div className="cart-title" style={{ backgroundImage: `url(../../../../${this.props.cartImage})` }}>
               <p>{this.props.title}</p>
             </div>
-
             {
               this.props.moto && <div className="description">
                 <p>

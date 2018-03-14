@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import AddPost from './components/AddPost/AddPost';
 import Carts from './components/Cart/CartCollection';
 import PostPage from './components/PostPage/PostPage';
+import Navbar from './components/Navbar/Navbar';
 
 // styles
 
@@ -18,16 +19,20 @@ const App = (props) => {
   const imageUrl = require(`./assets/images/${props.imageName}.jpg`)
   return (
     <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
-      <Body>
-        <Router>
-          <Switch>
-            <Route path="/" exact component={AddPost} />
-            <Route path="/posts" exact component={Carts} />
-            <Route path="/posts/:id" exact component={PostPage} />
-          </Switch>
-        </Router>
-      </Body>
-      <Footer socials={['twitter', 'facebook', 'google']} />
+      <Router>
+        <div>
+          <Navbar pages={['Posts', 'Add Post', 'Login', 'Sing Up']} />
+          <Body>
+            <Switch>
+              <Route path="/addpost" exact component={AddPost} />
+              <Route path="/posts" exact component={Carts} />
+              <Route path="/posts/:id" exact component={PostPage} />
+              <Route path="/posts/:id/edit" exact component={AddPost} />
+            </Switch>
+          </Body>
+          <Footer socials={['twitter', 'facebook', 'google']} />
+        </div>
+      </Router>
     </div>
   );
 };

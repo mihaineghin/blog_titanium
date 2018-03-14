@@ -2,9 +2,9 @@ import React from 'react';
 
 const EditButton = props =>
   (
-    <div className="edit_button" onClick={props.onClick} >
+    <div className="delete_button" onClick={props.onClick}>
       <div className="edit-icon">
-        <i className="far fa-edit" />
+        <i className="fas fa-times" />
       </div>
     </div>
   );

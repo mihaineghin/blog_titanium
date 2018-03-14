@@ -8,7 +8,6 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
-
 // Connect to database
 mongoose.connect('mongodb://localhost/mydb');
 // Create image storage
@@ -19,7 +18,6 @@ const storage = multer.diskStorage({
     cb(null, `${file.originalname}`);
   },
 });
-
 
 // create the multer instance that will be used to upload/save the file
 
@@ -34,12 +32,12 @@ app.use('/uploads', express.static('uploads'));
 // Creating the post on form submit
 
 app.post('/api/posts', upload.single('file'), (req, res) => {
-
   Post.create({
     title: req.body.title,
     moto: req.body.moto,
+    author: req.body.author,
     description: req.body.description,
-    cartImage: req.file.path
+    cartImage: req.file.path,
   })
     .then((signature) => {
       res.json(signature);
@@ -67,4 +65,20 @@ app.get('/api/posts/:id', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));  
+app.patch('/api/posts/:id', upload.single('file'), (req, res) => {
+  const { id } = req.params;
+  Post.update({ _id: id }, { $set: req.body })
+    .exec()
+    .then(succes => res.json(succes))
+    .catch(err => console.log(err));
+});
+
+app.delete('/api/posts/:id', (req, res) => {
+  Post.findById(req.params.id)
+    .remove()
+    .exec()
+    .then(succes => res.json(succes))
+    .catch(err => console.log(err));
+});
+
+app.listen(port, () => console.log(`Listening on port ${port}`));

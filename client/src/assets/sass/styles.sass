@@ -9,6 +9,7 @@
     overflow: hidden
     overflow-y: scroll
 .main-container
+    min-height: calc(100vh - 130px - 230px)
     
     .carts-container
         max-width: 900px
@@ -75,6 +76,23 @@
                         color: #757575
                         font-size: 1.4rem
 
+.navbar
+  position: absolute
+  top: 0
+  right: 0
+  .navbar-container
+    padding: 50px
+    .nav-menu
+      .menu-item
+        color: #fff
+        text-decoration: none
+        font-size: 1.8rem
+        transition: 300ms
+        padding: 5px 10px
+        border-radius: 5px
+        &:hover
+          background-color: rgba(255, 255, 255, .2)
+
 .footer-container
     background-color: #fff
     min-height: 80px
@@ -124,9 +142,21 @@
 
 .detail-post
   .description 
-    padding: 0 100px!important
+    padding: 20px
 
-.edit_button
+  .cart-text
+    max-width: 512px
+    margin: 16px auto
+    font-size: 16px!important
+    line-height: 28px!important
+    color: #616161!important
+    
+  .cart-title
+    min-height: 250px
+  
+
+
+.edit_button, .delete_button
   position: absolute;
   display: inline-block;
   width: 56px;
@@ -144,5 +174,15 @@
   display: flex;
   align-items: center
   justify-content: center
+  cursor: pointer
+  &:hover 
+    i 
+      transform: rotate(360deg)
+      
+
   i 
     font-size: 18px
+    transition: 1s ease-in-out
+    
+.delete_button
+  top: 80px

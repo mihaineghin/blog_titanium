@@ -9,6 +9,15 @@
           ".jsx"
         ]
       }
+    ],
+    "react/prop-types": [
+      1
     ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   }
 }
