@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Connect to database
-mongoose.connect('mongodb://localhost/mydb');
+mongoose.connect('mongodb://admin:admin@ds213759.mlab.com:13759/blog');
 // Create image storage
 
 const storage = multer.diskStorage({

@@ -10,6 +10,8 @@ import AddPost from './components/AddPost/AddPost';
 import Carts from './components/Cart/CartCollection';
 import PostPage from './components/PostPage/PostPage';
 import Navbar from './components/Navbar/Navbar';
+import Welcome from './components/Welcome/Welcome';
+import NotFound from './components/NotFound/NotFound';
 
 // styles
 
@@ -24,10 +26,13 @@ const App = (props) => {
           <Navbar pages={['Posts', 'Add Post', 'Login', 'Sing Up']} />
           <Body>
             <Switch>
+              <Route path="/" exact component={Welcome} />
               <Route path="/addpost" exact component={AddPost} />
               <Route path="/posts" exact component={Carts} />
               <Route path="/posts/:id" exact component={PostPage} />
               <Route path="/posts/:id/edit" exact component={AddPost} />
+              <Route path="*" exact component={NotFound} />
+
             </Switch>
           </Body>
           <Footer socials={['twitter', 'facebook', 'google']} />
