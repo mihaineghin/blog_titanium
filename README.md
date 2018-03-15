@@ -3,4 +3,4 @@
 * run `npm install` into client directori
 
 ## 2. Start the project
-* run 'npm run dev'
+* run `npm run dev`
