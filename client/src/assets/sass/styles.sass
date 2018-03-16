@@ -224,3 +224,40 @@
   50%
     transform: scale(1.1)
 
+.search 
+  position: relative
+  height: 50px
+  border: 0
+  transition: all .15s ease-in-out
+  margin-bottom: 30px
+  width: 100%
+  display: flex
+  flex-direction: row-reverse
+
+.search-input
+  display: inline-block
+  margin: 0 12px
+  padding: 8px 20px
+  border: 0
+  box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3)
+  transition: all .15s ease-in-out
+  width: 40%
+  height: 100%
+  &:focus
+    margin: 0
+    outline: 0
+.search-label
+  position: absolute
+  top: 50%
+  right: 30px
+  font-size: 40px
+  transition: all .15s ease-in-out
+  transform: translateY(-50%)
+  display: flex
+  align-items: center
+  i 
+    font-size: 2rem
+
+.search-input:focus + .search-label 
+  transform: translateX(12px) translateY(-50%)
+

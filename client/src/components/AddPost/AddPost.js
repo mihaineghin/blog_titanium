@@ -5,22 +5,21 @@ class AddPost extends Component {
   constructor() {
     super();
     this.state = {
-      fireRedirect: false,
-      selectedFile: ''
+      selectedFile: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = (e) => {
-    const state = this.state;
+  onChange(e) {
+    const { state } = this;
     state.selectedFile = e.target.files[0];
 
     this.setState(state);
   }
 
-  handleSubmit = (e) => {
-
-    e.preventDefault()
+  handleSubmit(e) {
+    e.preventDefault();
 
     let id = this.props.location.pathname.split('/');
 
@@ -33,27 +32,27 @@ class AddPost extends Component {
 
     const config = {
       headers: {
-        "content-type": "multipart/form-data"
+        'content-type': 'multipart/form-data',
       }
     };
 
     if (this.props.location.pathname !== `/posts/${id[id.length - 2]}/edit`) {
       axios.post('/api/posts', formData, config)
-        .then((response) => {
-          this.props.history.push('/posts')
-        });
+        .then(() => {
+          this.props.history.push('/posts');
+        })
+        .catch(err => console.log(err));
     } else {
       axios.patch(`/api/posts/${id[id.length - 2]}`, formData, config)
         .then((response) => {
-          this.props.history.push(`/posts/${id[id.length - 2]}`)
-          console.log(response)
+          this.props.history.push(`/posts/${id[id.length - 2]}`);
+          console.log(response);
         })
         .catch(err => console.log(err));
     }
   }
 
   render() {
-
     return (
       <div className="add-post_container">
         <form onSubmit={this.handleSubmit}>
@@ -65,7 +64,7 @@ class AddPost extends Component {
           <input type="submit" value="Fly" />
         </form>
       </div>
-    )
+    );
   }
 }
 

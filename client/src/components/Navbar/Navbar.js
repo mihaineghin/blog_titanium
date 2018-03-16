@@ -7,9 +7,8 @@ const Navbar = (props) => {
     const parsingItem = el.split(' ').join('').toLowerCase();
     return <Link className="menu-item" to={`/${parsingItem}`} key={index}>{el}</Link>;
   });
-
   return (
-    <div className="navbar">
+    <div className="navbar" >
       <div className="navbar-container">
         <div className="nav-menu">
           {menuCollection}

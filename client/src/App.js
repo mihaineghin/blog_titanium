@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 // Components
 
@@ -23,7 +22,7 @@ const App = (props) => {
     <div className="App" style={{ backgroundImage: `url(${imageUrl})` }}>
       <Router>
         <div>
-          <Navbar pages={['Posts', 'Add Post', 'Login', 'Sing Up']} />
+          <Navbar pages={['Posts', 'Add Post', 'Login', 'Sign Up']} />
           <Body>
             <Switch>
               <Route path="/" exact component={Welcome} />

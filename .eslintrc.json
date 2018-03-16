@@ -1,6 +1,14 @@
 {
   "extends": "airbnb",
   "rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ],
     "react/jsx-filename-extension": [
       1,
       {
@@ -12,6 +20,22 @@
     ],
     "react/prop-types": [
       1
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
+      }
     ]
   },
   "parserOptions": {
@@ -19,5 +43,5 @@
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
-  }
+  },
 }
