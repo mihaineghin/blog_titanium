@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const Post = require('./models/posts');
+const User = require('./models/users');
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const app = express();
 
@@ -78,6 +80,29 @@ app.delete('/api/posts/:id', (req, res) => {
     .remove()
     .exec()
     .then(succes => res.json(succes))
+    .catch(err => console.log(err));
+});
+
+// Login & Register handle
+
+app.post('/api/users', (req, res) => {
+  const data = req.body;
+  User.create({
+    username: req.body.username,
+    password: req.body.password,
+  })
+    .then((signature) => {
+      res.json(signature);
+    });
+});
+
+app.post('/api/users/check', (req, res) => {
+  User.findOne(req.body)
+    .then(data => {
+      if (data !== null)
+        return res.json(data._id)
+      return res.json(undefined);
+    })
     .catch(err => console.log(err));
 });
 

@@ -35,7 +35,7 @@ export default class Cart extends Component {
                 </p>
               </div>
             }
-            <CartFooter avatar={this.props.avatarImage} author={this.props.author} />
+            <CartFooter time={this.props.time} avatar={this.props.avatarImage} author={this.props.author} />
           </div>
         </Link >
       </div>

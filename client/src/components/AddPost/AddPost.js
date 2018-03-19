@@ -6,8 +6,17 @@ class AddPost extends Component {
     super();
     this.state = {
       selectedFile: '',
+      title: '',
+      author: '',
+      description: '',
+      moto: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleMoto = this.handleMoto.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleAuthor = this.handleAuthor.bind(this);
+
     this.onChange = this.onChange.bind(this);
   }
 
@@ -18,22 +27,38 @@ class AddPost extends Component {
     this.setState(state);
   }
 
+  handleTitle(e) {
+    this.setState({ title: e.target.value });
+  }
+
+  handleMoto(e) {
+    this.setState({ moto: e.target.value });
+  }
+
+  handleDescription(e) {
+    this.setState({ description: e.target.value });
+  }
+
+  handleAuthor(e) {
+    this.setState({ author: e.target.value });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
-    let id = this.props.location.pathname.split('/');
+    const id = this.props.location.pathname.split('/');
 
     const formData = new FormData();
     formData.append('file', this.state.selectedFile);
-    formData.append('title', this.title.value);
-    formData.append('moto', this.moto.value);
-    formData.append('author', this.author.value);
-    formData.append('description', this.description.value);
+    formData.append('title', this.state.title);
+    formData.append('moto', this.state.moto);
+    formData.append('author', this.state.author);
+    formData.append('description', this.state.description);
 
     const config = {
       headers: {
         'content-type': 'multipart/form-data',
-      }
+      },
     };
 
     if (this.props.location.pathname !== `/posts/${id[id.length - 2]}/edit`) {
@@ -56,10 +81,10 @@ class AddPost extends Component {
     return (
       <div className="add-post_container">
         <form onSubmit={this.handleSubmit}>
-          <input placeholder="Post title" ref={(input) => this.title = input} />
-          <input placeholder="Moto" ref={(input) => this.moto = input} />
-          <input placeholder="Author name" ref={(input) => this.author = input} />
-          <textarea placeholder="post-content" ref={(input) => this.description = input}></textarea>
+          <input placeholder="Post title" value={this.state.title} onChange={this.handleTitle} />
+          <input placeholder="Moto" value={this.state.moto} onChange={this.handleMoto} />
+          <input placeholder="Author name" value={this.state.author} onChange={this.handleAuthor} />
+          <textarea placeholder="post-content" value={this.state.description} onChange={this.handleDescription} />
           <input type="file" id="image" name="image" onChange={this.onChange} />
           <input type="submit" value="Fly" />
         </form>

@@ -43,5 +43,5 @@
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
-  },
+  }
 }
