@@ -43,43 +43,46 @@ class Login extends Component {
       password: '',
     };
     this.login = this.login.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = prop => e => {
-    this.setState({ [prop]: e.target.value });
-  };
+  // handleChange = prop => e => {
+  //   this.setState({ [prop]: e.target.value });
+  // };
+  getToken() {
+    return localStorage.getItem('id_token')
+  }
+
+  handleChange(prop) {
+    return (e) => {
+      this.setState({ [prop]: e.target.value });
+    }
+  }
 
   login(e) {
     e.preventDefault();
 
-    const { username, password } = this.state;
-
-    const formData = this.state
+    const formData = this.state;
 
     axios.post('/api/users/check', formData)
-      .then(res => {
+      .then((res) => {
         if (res.data) {
-          this.setToken(res.data)
-          this.props.history.push('/posts');
+          this.setToken(res.data);
+          window.location.href = '/posts';
         } else {
           alert('Incorect username or password')
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   loggedIn() {
-    const token = this.getToken()
-    return !!token
+    const token = this.getToken();
+    return !!token;
   }
 
   setToken(idToken) {
     localStorage.setItem('id_token', idToken)
-    console.log(localStorage)
-  }
-
-  getToken() {
-    return localStorage.getItem('id_token')
   }
 
   logout() {
@@ -126,9 +129,7 @@ class Login extends Component {
                 <Button type="submit" variant="raised" size="medium" color="primary">Log in</Button>
               </form>
               <div className="form-footer">
-                <p>
-                  Don't have an acount? <Link to="/signup">click here!</Link>
-                </p>
+                <p>Don't have an acount? <Link to="/signup">click here!</Link></p>
               </div>
             </Paper>
           </Grid>

@@ -8,6 +8,7 @@ const postSchema = new Schema({
   author: String,
   description: String,
   cartImage: String,
+  time: String,
 });
 
 const Post = mongoose.model('Posts', postSchema);

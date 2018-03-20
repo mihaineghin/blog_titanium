@@ -25,12 +25,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      logedIn: '',
     };
   }
 
   render() {
-
     const imageUrl = require(`./assets/images/${this.props.imageName}.jpg`);
     console.log(localStorage.getItem('id_token'));
 
@@ -41,9 +39,13 @@ class App extends Component {
             <div>
               {localStorage.getItem('id_token')
                 ?
-                <Navbar pages={['Posts', 'Add Post', 'Log out']} />
+                <Navbar
+                  pages={['Posts', 'Add Post', 'Log out']}
+                />
                 :
-                <Navbar pages={['Login', 'Sign Up']} />
+                <Navbar
+                  pages={['Login', 'Sign Up']}
+                />
               }
               <Body>
                 <Switch>
@@ -64,6 +66,6 @@ class App extends Component {
       </MuiThemeProvider >
     );
   }
-};
+}
 
 export default App;

@@ -14,6 +14,8 @@
     .carts-container
         max-width: 900px
         margin: 0 auto
+        +max(920px) 
+          padding: 0 30px
         .cart-style 
             text-decoration: none
 
@@ -243,6 +245,8 @@
   transition: all .15s ease-in-out
   width: 40%
   height: 100%
+  +max(520px)
+    width: 100%
   &:focus
     margin: 0
     outline: 0

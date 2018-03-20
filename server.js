@@ -40,6 +40,7 @@ app.post('/api/posts', upload.single('file'), (req, res) => {
     author: req.body.author,
     description: req.body.description,
     cartImage: req.file.path,
+    time: moment().format('MMM Do YY'),
   })
     .then((signature) => {
       res.json(signature);
@@ -86,7 +87,6 @@ app.delete('/api/posts/:id', (req, res) => {
 // Login & Register handle
 
 app.post('/api/users', (req, res) => {
-  const data = req.body;
   User.create({
     username: req.body.username,
     password: req.body.password,
@@ -98,11 +98,7 @@ app.post('/api/users', (req, res) => {
 
 app.post('/api/users/check', (req, res) => {
   User.findOne(req.body)
-    .then(data => {
-      if (data !== null)
-        return res.json(data._id)
-      return res.json(undefined);
-    })
+    .then(data => (data !== null ? res.json(data._id) : res.json(undefined)))
     .catch(err => console.log(err));
 });
 
